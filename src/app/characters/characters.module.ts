@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { CharactersComponent } from './characters.component';
 
@@ -8,6 +9,7 @@ import { CharacterCardModule } from '@app/shared/components/character-card/chara
 
 @NgModule({
   imports: [
+    CommonModule,
     CharacterCardModule,
     CharactersRoutingModule
   ],
