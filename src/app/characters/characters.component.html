@@ -1,8 +1,10 @@
 <div class="container-fluid">
-  <header class="row justify-content-center">
-    <h2>Personagens</h2>
+  <header class="row">
+    <div class="col-12">
+      <h2>Personagens</h2>
+    </div>
   </header>
-
+  <hr>
   <ng-container *ngFor="let character of characters$ | async; trackBy: trackByFn">
     <co-ex-character-card [character]="character"></co-ex-character-card>
   </ng-container>

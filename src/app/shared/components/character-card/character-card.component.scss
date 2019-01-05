@@ -3,7 +3,7 @@
 ul {
   display: none;
   list-style: none;
-  background-color: $putty;
+  background-color: #FFF3CD;
   @include rem-calc(padding, 16px);
   @include rem-calc(border-radius, 4px);
 

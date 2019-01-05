@@ -1,0 +1,18 @@
+@import "../../../../assets/styles/core.scss";
+
+nav {
+  animation: fade-in .8s;
+  background-color: $tory-blue;
+  @include rem-calc(height, 40px);
+
+  a {
+    color: $white;
+    @include rem-calc(padding-top, 10px);
+  }
+
+  a:hover {
+    color: $onahau;
+    cursor: pointer;
+    transition: .6s;
+  }
+}

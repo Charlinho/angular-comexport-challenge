@@ -1,19 +1,9 @@
 @import '../../assets/styles/core.scss';
 
-
-ul {
-  display: none;
-  list-style: none;
-  background-color: $putty;
-  @include rem-calc(padding, 16px);
-  @include rem-calc(border-radius, 4px);
-
-  span, strong {
-    @include rem-calc(font-size, 12px);
+header {
+  h2 {
+    margin-bottom: 0;
+    @include rem-calc(margin-top, 10px);
   }
-
-  &.right-slide {
-    display: block;
-    animation: slide-in-right .5s;
-  }
+  animation: fade-in .12s;
 }
