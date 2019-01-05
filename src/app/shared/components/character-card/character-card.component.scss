@@ -1,0 +1,18 @@
+@import '../../../../assets/styles/core.scss';
+
+ul {
+  display: none;
+  list-style: none;
+  background-color: $putty;
+  @include rem-calc(padding, 16px);
+  @include rem-calc(border-radius, 4px);
+
+  span, strong {
+    @include rem-calc(font-size, 12px);
+  }
+
+  &.right-slide {
+    display: block;
+    animation: slide-in-right .5s;
+  }
+}
