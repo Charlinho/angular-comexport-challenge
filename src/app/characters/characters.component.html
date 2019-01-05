@@ -5,7 +5,12 @@
     </div>
   </header>
   <hr>
-  <ng-container *ngFor="let character of characters$ | async; trackBy: trackByFn">
-    <co-ex-character-card [character]="character"></co-ex-character-card>
-  </ng-container>
+</div>
+
+<div class="container-fluid">
+  <cdk-virtual-scroll-viewport #virtualScroll [itemSize]="150" (scrolledIndexChange)="onScolling()">
+    <div *cdkVirtualFor="let character of characters; trackBy: trackByFn">
+      <co-ex-character-card [character]="character"></co-ex-character-card>
+    </div>
+  </cdk-virtual-scroll-viewport>
 </div>

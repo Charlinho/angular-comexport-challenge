@@ -13,10 +13,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   public get<T>(url: string): Observable<T> {
-    return this.http.get<T>(`${environment.apiUrl}/${url}`)
-      .pipe(
-        map((data: any) => data.results ? data.results : data)
-      );
+    return this.http.get<T>(`${environment.apiUrl}/${url}`);
   }
 
   public post<T>(url: string, params?: HttpParams): Observable<T> {

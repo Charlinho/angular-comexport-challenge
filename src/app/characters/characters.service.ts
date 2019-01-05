@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { concatMap, toArray, map, flatMap, take } from 'rxjs/operators';
+import { Observable, BehaviorSubject, of } from 'rxjs';
+import { concatMap, toArray, map, flatMap } from 'rxjs/operators';
 
 import { ApiService } from '@app/core/services/api.service';
 
@@ -16,12 +16,31 @@ export class CharactersService {
   private charactersSubject = new BehaviorSubject<Character[]>(null);
   public characters$ = this.charactersSubject.asObservable();
 
+  private page = 1;
+  private nextPage: string;
+  private shouldFetchNextPage: boolean;
+
   constructor(private apiService: ApiService) {}
 
-  public findAllCharacters(): void {
-    this.apiService.get('people')
+  public fetchCharacters(): void {
+    this.findCharacters('people');
+  }
+
+  public fetchMoreCharacters(): void {
+    if (this.canFetchMoreCharacters()) {
+      this.findCharacters(`people/?page=${this.page}`);
+    }
+  }
+
+  private findCharacters(uri: string): void {
+    this.shouldFetchNextPage = false;
+
+    this.apiService.get(uri)
       .pipe(
-        concatMap((characterResponse: Array<CharacterResponse>) => characterResponse),
+        concatMap((data: any) => {
+          this.nextPage = data.next;
+          return data.results;
+        }),
         flatMap((characterResponse: CharacterResponse) => {
           return this.getPlanet(characterResponse.homeworld)
             .pipe(
@@ -36,15 +55,21 @@ export class CharactersService {
         }),
         toArray()
       ).subscribe((characters: Array<Character>) => {
+        this.page++;
+        this.shouldFetchNextPage = true;
         this.charactersSubject.next(characters);
       });
   }
 
   private getPlanet(uri: string): Observable<Planet> {
-    return this.apiService.get(`planets/${uri.split('/')[5]}`);
+    return !uri ? of() : this.apiService.get(`planets/${uri.split('/')[5]}`);
   }
 
   private getSpecie(uri: string): Observable<Specie> {
-    return this.apiService.get(`species/${uri.split('/')[5]}`);
+    return !uri ? of() : this.apiService.get(`species/${uri.split('/')[5]}`);
+  }
+
+  private canFetchMoreCharacters(): boolean {
+    return Boolean(this.shouldFetchNextPage && this.nextPage);
   }
 }
