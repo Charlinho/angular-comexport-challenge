@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { concatMap, toArray, map, flatMap } from 'rxjs/operators';
 
 import { ApiService } from '@app/core/services/api.service';
@@ -13,7 +13,7 @@ import { CharacterResponse } from '@app/core/dtos/character.response';
 @Injectable()
 export class CharactersService {
 
-  private charactersSubject = new BehaviorSubject<Character[]>(null);
+  private charactersSubject = new Subject<Character[]>();
   public characters$ = this.charactersSubject.asObservable();
 
   private page = 1;

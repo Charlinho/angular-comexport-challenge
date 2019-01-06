@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
 
 import { CharactersService } from './characters.service';
@@ -9,7 +9,7 @@ import { Character } from '@app/core/models/character.model';
   templateUrl: './characters.component.html',
   styleUrls: ['./characters.component.scss']
 })
-export class CharactersComponent implements OnInit {
+export class CharactersComponent {
 
   @ViewChild('virtualScroll')
   viewport: CdkVirtualScrollViewport;
@@ -17,18 +17,8 @@ export class CharactersComponent implements OnInit {
   public characters: Array<Character>;
 
   constructor(private charactersService: CharactersService) {
+    this.setCharacters();
     this.charactersService.fetchCharacters();
-  }
-
-  ngOnInit(): void {
-    this.charactersService.characters$
-      .subscribe((characters: Array<Character>) => {
-        if (!this.characters) {
-          this.characters = characters;
-          return;
-        }
-        this.characters = this.characters.concat(characters);
-    });
   }
 
   public onScolling(): void {
@@ -39,6 +29,17 @@ export class CharactersComponent implements OnInit {
 
   public trackByFn(index: number): number {
     return index;
+  }
+
+  private setCharacters(): void {
+    this.charactersService.characters$
+      .subscribe((characters: Array<Character>) => {
+        if (!this.characters) {
+          this.characters = characters;
+          return;
+        }
+        this.characters = this.characters.concat(characters);
+      });
   }
 
   private getMaximunScroll(): number {
