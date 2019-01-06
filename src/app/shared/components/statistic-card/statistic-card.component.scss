@@ -2,10 +2,15 @@
 
 .card {
   display: none;
-  @include rem-calc(width, 360px);
+
+  @media only screen and (min-width: $desktop)  {
+    @include rem-calc(width, 360px);
+  }
 
   img {
-    @include rem-calc(height, 450px);
+    @media only screen and (min-width: $desktop)  {
+      @include rem-calc(height, 450px);
+    }
   }
 
   &.right-slide {
