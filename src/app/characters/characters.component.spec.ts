@@ -1,11 +1,12 @@
 import { Subject } from 'rxjs';
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 
 import { CharactersComponent } from './characters.component';
 import { CharactersService } from './characters.service';
 import { CharacterCardComponent } from '@app/shared/components/character-card/character-card.component';
+import { PageHeaderModule } from '@app/shared/components/page-header/page-header.module';
 
 let component: CharactersComponent;
 let fixture: ComponentFixture<CharactersComponent>;
@@ -17,6 +18,7 @@ describe('Characters Component', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        PageHeaderModule,
         RouterTestingModule,
         ScrollDispatchModule
       ],

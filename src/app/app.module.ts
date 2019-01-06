@@ -14,9 +14,9 @@ import { AppComponent } from './app.component';
     HeaderModule,
     RouterModule,
     BrowserModule,
+    HttpClientModule,
     CharactersModule,
-    AppRoutingModule,
-    HttpClientModule
+    AppRoutingModule
   ],
   declarations: [
     AppComponent

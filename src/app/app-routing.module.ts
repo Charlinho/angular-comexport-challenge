@@ -2,7 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '**', redirectTo: 'personagens', pathMatch: 'full' }
+  {
+    path: 'estatisticas',
+    loadChildren: '@app/statistics/statistics.module#StatisticsModule'
+  },
+  {
+    path: '**',
+    redirectTo: 'personagens',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

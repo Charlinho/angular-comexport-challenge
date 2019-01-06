@@ -1,0 +1,9 @@
+@import "../../../../assets/styles/core.scss";
+
+header {
+  h2 {
+    margin-bottom: 0;
+    @include rem-calc(margin-top, 10px);
+  }
+  animation: fade-in .12s;
+}
