@@ -1,9 +1,11 @@
-<co-ex-page-header>Estatisticas</co-ex-page-header>
+<co-ex-page-header>Estatísticas</co-ex-page-header>
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-12 col-md-4">
-      <co-ex-statistic-card></co-ex-statistic-card>
-    </div>
+    <ng-container *ngFor="let film of films$ | async">
+      <div class="col-md-4 form-group">
+        <co-ex-statistic-card [film]="film"></co-ex-statistic-card>
+      </div>
+    </ng-container>
   </div>
 </div>

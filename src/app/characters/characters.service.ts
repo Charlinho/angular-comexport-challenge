@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { concatMap, toArray, map, flatMap } from 'rxjs/operators';
+import { toArray, map, flatMap, concatMap } from 'rxjs/operators';
 
 import { ApiService } from '@app/core/services/api.service';
 
 import { Planet } from '@app/core/models/planet.model';
 import { Specie } from '@app/core/models/specie.model';
 import { Character } from '@app/core/models/character.model';
-import { CharacterResponse } from '@app/core/dtos/character.response';
+import { CharacterResponseDto } from '@app/core/dtos/character.response';
 
 
 @Injectable()
@@ -41,7 +41,7 @@ export class CharactersService {
           this.nextPage = data.next;
           return data.results;
         }),
-        flatMap((characterResponse: CharacterResponse) => {
+        flatMap((characterResponse: CharacterResponseDto) => {
           return this.getPlanet(characterResponse.homeworld)
             .pipe(
               map((planet: Planet) => planet),

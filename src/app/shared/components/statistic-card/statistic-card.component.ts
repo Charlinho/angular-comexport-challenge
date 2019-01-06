@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { Movie } from '@app/core/models/movie.model';
+import { Film } from '@app/core/models/film.model';
 
 @Component({
   selector: 'co-ex-statistic-card',
@@ -10,5 +10,9 @@ import { Movie } from '@app/core/models/movie.model';
 export class StatisticCardComponent {
 
   @Input()
-  movie: Movie;
+  film: Film;
+
+  get imgSrc() {
+    return `./assets/img/${this.film.episode}.jpg`;
+  }
 }

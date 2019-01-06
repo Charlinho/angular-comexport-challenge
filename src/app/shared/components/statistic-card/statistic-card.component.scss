@@ -1,0 +1,15 @@
+@import '../../../../assets/styles/core.scss';
+
+.card {
+  display: none;
+  @include rem-calc(width, 360px);
+
+  img {
+    @include rem-calc(height, 450px);
+  }
+
+  &.right-slide {
+    display: block;
+    animation: slide-in-right .5s;
+  }
+}

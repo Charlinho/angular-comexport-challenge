@@ -1,6 +1,6 @@
 import { Planet } from './planet.model';
 import { Specie } from './specie.model';
-import { CharacterResponse } from '../dtos/character.response';
+import { CharacterResponseDto } from '../dtos/character.response';
 
 export class Character {
   name: string;
@@ -10,7 +10,7 @@ export class Character {
   homeWorld: string;
   birthYear: string;
 
-  static parse(characterResponse: CharacterResponse, planet: Planet, specie: Specie): Character {
+  static parse(characterResponse: CharacterResponseDto, planet: Planet, specie: Specie): Character {
     const character = new Character();
 
     character.specie = specie.name;

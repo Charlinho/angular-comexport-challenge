@@ -1,4 +1,4 @@
-export class CharacterResponse {
+export class CharacterResponseDto {
   name: string;
   count: number;
   height: string;
