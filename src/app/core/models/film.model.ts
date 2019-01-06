@@ -10,7 +10,7 @@ export class Film {
 
     film.title = filmResponseDto.title;
     film.episode = filmResponseDto.episode_id;
-    film.amountCharacters = filmResponseDto.characters.length;
+    film.amountCharacters = filmResponseDto.characters ? filmResponseDto.characters.length : null;
 
     return film;
   }
