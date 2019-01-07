@@ -3,7 +3,7 @@
   Angular - Comexport Challenge
 </h1>
 
-> Check out the [live demo](https://charlinho.github.io/angular-comexport-challenge/)
+> Check out the [live demo](https://charlinho.github.io/angular-comexport-challenge/).
 
 ## Installing
 
