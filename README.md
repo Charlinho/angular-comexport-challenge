@@ -1,5 +1,7 @@
 # Angular - Comexport Challenge
 
+App created with Angular 7.
+
 ## Intalling
 
 Run `npm install` in root project folder.
@@ -12,6 +14,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Running unit tests - Jest
 
-Run `ng test` to execute the unit tests via Jest.
+Run `npm run test` to execute the unit tests via Jest.
+
+## Running e2e tests - Cypress
+
+Run `npm run e2e` to execute the integration tests via Cypress.
