@@ -2,7 +2,7 @@
 
 App created with Angular 7.
 
-## Intalling
+## Installing
 
 Run `npm install` in root project folder.
 
@@ -18,6 +18,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `npm run test` to execute the unit tests via Jest.
 
+https://jestjs.io/
+
 ## Running e2e tests - Cypress
 
 Run `npm run e2e` to execute the integration tests via Cypress.
+
+https://www.cypress.io/
+
