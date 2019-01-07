@@ -1,6 +1,9 @@
-# Angular - Comexport Challenge
+<h1 align="center">
+<img width="40" valign="bottom" src="https://angular.io/assets/images/logos/angular/angular.svg">
+  Angular - Comexport Challenge
+</h1>
 
-App created with Angular 7.
+> Check out the [live demo](https://charlinho.github.io/angular-comexport-challenge/)
 
 ## Installing
 
