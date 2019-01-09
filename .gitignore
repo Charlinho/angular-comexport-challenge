@@ -5,6 +5,9 @@
 /tmp
 /out-tsc
 
+# vscode
+/vscode
+
 # dependencies
 /node_modules
 
